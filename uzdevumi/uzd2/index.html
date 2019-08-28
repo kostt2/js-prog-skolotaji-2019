@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="../../styles.css">
     <script type="text/javascript" >
-      let masivs [];
+      var masivs = [];
+      
       function init() {                                  
         let root = document.getElementById("root");       
         let div = document.createElement("DIV");          
@@ -14,6 +15,7 @@
         div.innerHTML = JSON.stringify(masivs);           
         root.appendChild(div);                            
       }
+     
       function pievienot() {                                                  
         let value = document.getElementById("pievienot_vertiba").value;       
         if (value) {                                                          
@@ -21,16 +23,19 @@
         }                                                                    
         render();                                                             
       }
+      
       function nonemt() {               
         if (masivs.length > 0) {        
           masivs.pop();                 
         }                               
         render();                      
       }
+      
       function render() {                               
         let div = document.getElementById("result");    
         div.innerHTML = JSON.stringify(masivs);         
       }
+      
       function pievienotAizIndeksa() {                                                
         let index = Number(document.getElementById("pievienot_indekss").value) + 1;   
         let value = document.getElementById("pievienot_indekss_vertiba").value;       
@@ -39,6 +44,7 @@
         }                                                                             
         render();                                                                     
       }
+      
       function nonemtPecIndeksa() {                                                   
         let index = Number(document.getElementById("nonemt_indekss").value);          
         if (index <= masivs.length && index >= 0) {                                   
@@ -46,6 +52,7 @@
         }                                                                             
         render();                                                                     
       }
+
     </script>
   </head>
   <body onload="init()" class="container">
@@ -60,22 +67,22 @@
       </ol>
     </div>
     <div id="root" class="row justify-content-center">
-      <div class="row justify-content-center">
+      <div class="row content-center">
         <div class="col-sm-12 label">Pievienot vērtību</div>
-        <input class="col-md-5 form-control" id="pievienot_vertiba" class="col-lg-5 form-control" type="text" value="0"/>
-        <button class="col-md-3 btn btn-success" onClick="pievienot()">Pievienot</button>
-        <button class="col-md-3 btn btn-danger" onClick="nonemt()">Noņemt</button>
+        <input class="col-md-8 form-control" id="pievienot_vertiba" class="col-lg-5 form-control" type="text" value="0"/>
+        <button class="col-md-2 btn btn-success" onClick="pievienot()">Pievienot</button>
+        <button class="col-md-2 btn btn-danger" onClick="nonemt()">Noņemt</button>
       </div>
-      <div class="row justify-content-center">
+      <div class="row content-center">
         <div class="col-sm-12 label">Pievienot vērtību aiz norādītā indeksa</div>
-        <input class="col-md-4 form-control" id="pievienot_indekss" class="" type="number" placeholder="indekss"/>
-        <input class="col-md-4 form-control" id="pievienot_indekss_vertiba" type="text" placeholder="vērtība"/>
-        <button class="col-md-3 btn btn-success" onClick="pievienotAizIndeksa()">Pievienot</button>
+        <input class="col-md-3 form-control" id="pievienot_indekss" class="" type="number" placeholder="indekss"/>
+        <input class="col-md-3 form-control" id="pievienot_indekss_vertiba" type="text" placeholder="vērtība"/>
+        <button class="col-md-2 btn btn-success" onClick="pievienotAizIndeksa()">Pievienot</button>
       </div>
-      <div class="row justify-content-center">
+      <div class="row content-center">
         <div class="col-sm-12 label">Noņemt vērtību norādītajā indeksā</div>
-        <input class="col-md-8 form-control" id="nonemt_indekss" type="number" placeholder="indekss"/>
-        <button class="col-md-3 btn btn-danger" onClick="nonemtPecIndeksa()">Noņemt</button>
+        <input class="col-md-9 form-control" id="nonemt_indekss" type="number" placeholder="indekss"/>
+        <button class="col-md-2 btn btn-danger" onClick="nonemtPecIndeksa()">Noņemt</button>
       </div>
     </div>
     <div id="info">
